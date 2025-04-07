@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: "Staged view of customer seed data"
+    columns:
+      - name: id
+        description: "Unique identifier for each customer"
+      - name: name
+        description: "Name of the customer"
+
+  - name: stg_jaffle_shop__items
+    description: "Staged view of items seed data"
+    columns:
+      - name: id
+        description: "Unique identifier for each item"
+      - name: order_id
+        description: "Associated order"
+      - name: sku
+        description: "Stock keeping unit"
+
+  - name: stg_jaffle_shop__orders
+    description: "Staged view of orders seed data"
+    columns:
+      - name: id
+        description: "Order ID"
+      - name: customer
+        description: "Customer who placed the order"
+      - name: ordered_at
+        description: "Timestamp of the order"
+      - name: store_id
+        description: "Store that processed the order"
+      - name: subtotal
+        description: "Cost before tax"
+      - name: tax_paid
+        description: "Tax paid"
+      - name: order_total
+        description: "Total with tax"
+
+  - name: stg_jaffle_shop__products
+    description: "Staged view of products seed data"
+    columns:
+      - name: sku
+        description: "Product SKU"
+      - name: name
+        description: "Product name"
+      - name: type
+        description: "Product type"
+      - name: price
+        description: "Product price"
+      - name: description
+        description: "Product description"
+
+  - name: stg_jaffle_shop__stores
+    description: "Staged view of stores seed data"
+    columns:
+      - name: id
+        description: "Store ID"
+      - name: name
+        description: "Store name"
+      - name: opened_at
+        description: "Opening date"
+      - name: tax_rate
+        description: "Tax rate at the store"
+
+  - name: stg_jaffle_shop__supplies
+    description: "Staged view of supplies seed data"
+    columns:
+      - name: id
+        description: "Supply ID"
+      - name: name
+        description: "Supply name"
+      - name: cost
+        description: "Supply cost"
+      - name: perishable
+        description: "Is the item perishable"
+      - name: sku
+        description: "SKU reference"

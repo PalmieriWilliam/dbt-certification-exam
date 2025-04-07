@@ -3,7 +3,9 @@
 WITH final AS (
     SELECT id
         , name
-    FROM {{ ref('jaffle_shop_raw__customers') }}
+        , opened_at
+        , tax_rate
+    FROM {{ ref('jaffle_shop_raw__stores') }}
 )
 
 SELECT * FROM final
