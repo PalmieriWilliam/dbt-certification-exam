@@ -22,7 +22,7 @@ models:
 
     staging:
       jaffle_shop:
-        dataset: jaffle_shop
+        dataset: stg_jaffle_shop
         +materialized: view
 
 seeds:
