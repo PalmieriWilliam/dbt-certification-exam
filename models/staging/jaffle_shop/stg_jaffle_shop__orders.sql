@@ -10,6 +10,9 @@ WITH final AS (
         , tax_paid
         , order_total
     FROM {{ ref('jaffle_shop_raw__orders') }}
+
+    {{ limit_days(date_column = 'ordered_at', table = 'jaffle_shop_raw__orders', days = 10) }}
+
 )
 
 SELECT * FROM final
