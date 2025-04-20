@@ -1,0 +1,11 @@
+{# This is a comment #}
+
+{% set message_1 = 'Hello!' %}
+{% set message_2 = 'Jinja!' %}
+{% set years = 10 %}
+
+{{ message_1 }}
+{{ message_2 }}
+{{ years }}
+
+{{ message_1 }} I want to write  {{ message_2 }} for {{ years }} anos!

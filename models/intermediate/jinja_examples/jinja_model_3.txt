@@ -1,0 +1,7 @@
+{% set animals = ['cachorro', 'gato', 'papagaio', 'coiote'] %}
+
+{% for animal in animals%}
+    {{ animal }}
+{% endfor %}
+
+{{ animals[2] }} -- return papagaio
