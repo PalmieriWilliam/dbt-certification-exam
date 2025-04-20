@@ -1,0 +1,12 @@
+{%- for i in range(10) %}
+
+    SELECT {{i}} as number
+
+    {% if not loop.last -%}
+        UNION ALL
+    
+    {%- endif -%}
+
+{% endfor %}
+
+-- whitespace is tricky

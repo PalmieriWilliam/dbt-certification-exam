@@ -1,0 +1,21 @@
+WITH supplies AS (
+
+    SELECT * FROM {{ ref('stg_jaffle_shop__supplies') }}
+
+)
+
+, pivoted AS (
+    SELECT sku
+        , SUM ( CASE WHEN id = 'SUP-001' THEN cost ELSE 0 END) AS  cost_sup_001
+        , SUM ( CASE WHEN id = 'SUP-002' THEN cost ELSE 0 END) AS  cost_sup_002
+        , SUM ( CASE WHEN id = 'SUP-003' THEN cost ELSE 0 END) AS  cost_sup_003
+        , SUM ( CASE WHEN id = 'SUP-004' THEN cost ELSE 0 END) AS  cost_sup_004
+        , SUM ( CASE WHEN id = 'SUP-005' THEN cost ELSE 0 END) AS  cost_sup_005
+
+    FROM supplies
+    GROUP BY 1
+
+)
+
+SELECT *
+FROM pivoted

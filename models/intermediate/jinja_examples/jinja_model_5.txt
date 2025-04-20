@@ -1,0 +1,24 @@
+{%- set suppliers = ['SUP-001', 'SUP-002', 'SUP-003', 'SUP-004', 'SUP-005'] -%}
+
+WITH supplies AS (
+
+    SELECT * FROM {{ ref('stg_jaffle_shop__supplies') }}
+
+)
+
+, pivoted AS (
+    SELECT sku
+
+        {%- for supplier in suppliers %}
+
+            , SUM ( CASE WHEN id = '{{supplier}}' THEN cost ELSE 0 END) AS  cost_
+        
+        {%- endfor %}
+
+    FROM supplies
+    GROUP BY 1
+
+)
+
+SELECT *
+FROM pivoted

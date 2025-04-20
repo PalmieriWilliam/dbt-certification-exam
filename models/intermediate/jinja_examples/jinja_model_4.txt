@@ -1,0 +1,9 @@
+{% set account_balance = 60 %}
+
+{%- if account_balance < 5 -%}
+    We have food at home
+{%- elif account_balance < 40 -%}
+    We can order Mequi
+{%- else -%}
+    Fancy italian, here we go!
+{%- endif -%}
