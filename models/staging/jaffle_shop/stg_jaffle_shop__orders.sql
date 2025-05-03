@@ -1,5 +1,6 @@
 {{ config(materialized='view') }}
 
+-- message to trigger CI
 WITH final AS (
     SELECT id
         , customer
